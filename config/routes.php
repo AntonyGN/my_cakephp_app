@@ -10,5 +10,6 @@ $routes->scope('/', function (RouteBuilder $builder) {
    ]));
    $builder->applyMiddleware('csrf');
    $builder->connect('/generate',['controller'=>'Generates','action'=>'show']);
+   $builder->redirect('/redirect','https://tutorialspoint.com/');
    $builder->fallbacks();
 });
