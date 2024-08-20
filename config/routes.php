@@ -8,8 +8,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
    $builder->registerMiddleware('csrf', new CsrfProtectionMiddleware([
       'httponly' => true,
    ]));
-   $builder->applyMiddleware('csrf'); 
-   $builder->connect('/redirect-controller',['controller'=>'Redirects','action'=>'action1']);
-   $builder->connect('/redirect-controller2',['controller'=>'Redirects','action'=>'action2']);
+   $builder->applyMiddleware('csrf');
+   $builder->connect('template',['controller'=>'Products','action'=>'view']);
    $builder->fallbacks();
 });
