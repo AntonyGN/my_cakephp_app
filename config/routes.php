@@ -8,6 +8,6 @@ $routes->scope('/', function (RouteBuilder $builder) {
       'httponly' => true,
    ]));
    $builder->applyMiddleware('csrf');
-   $builder->connect('extend',['controller'=>'Extends','action'=>'index']);
+   $builder->connect('/element-example',['controller'=>'Elems','action'=>'index']);
    $builder->fallbacks();
 });
