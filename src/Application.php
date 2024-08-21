@@ -47,6 +47,9 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
+        // Add this line to load the Migrations plugin
+        $this->addPlugin('Migrations');
+
         if (PHP_SAPI !== 'cli') {
             FactoryLocator::add(
                 'Table',
