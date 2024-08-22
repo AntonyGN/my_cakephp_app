@@ -50,6 +50,9 @@ class Application extends BaseApplication
         // Add this line to load the Migrations plugin
         $this->addPlugin('Migrations');
 
+        // Add this line to load the Bake plugin
+        $this->addPlugin('Bake');
+
         if (PHP_SAPI !== 'cli') {
             FactoryLocator::add(
                 'Table',
