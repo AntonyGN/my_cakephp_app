@@ -12,7 +12,7 @@
         "mobiledetect/mobiledetectlib": "^4.8.03"
     },
     "require-dev": {
-        "cakephp/bake": "^2.0",
+        "cakephp/bake": "^2.9",
         "cakephp/cakephp-codesniffer": "^4.0",
         "cakephp/debug_kit": "^4.0.0",
         "josegonzalez/dotenv": "^3.0",
