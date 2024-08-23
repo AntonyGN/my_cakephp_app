@@ -21,6 +21,8 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/users', ['controller' => 'Users', 'action' => 'index']);
 
     $builder->connect('/users/edit', ['controller' => 'Users', 'action' => 'edit']);
+
+    $builder->connect('/users/delete', ['controller' => 'Users', 'action' => 'delete']);
     
     // Fallback routes
     $builder->fallbacks();

@@ -52,6 +52,20 @@ class UsersController extends AppController
         // Pre-fill the form with the existing user data
         $this->set('user', $user);
     }
+
+    public function delete($id)
+    {
+    
+        $usersTable = $this->getTableLocator()->get('Users');
+        $user = $usersTable->get($id);
+        if ($usersTable->delete($user)) {
+            $this->Flash->success(__('User has been deleted successfully.'));
+        } else {
+            $this->Flash->error(__('Failed to delete the user.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
 }
 
 ?>
