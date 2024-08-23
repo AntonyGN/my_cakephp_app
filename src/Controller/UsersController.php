@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
 use Cake\Auth\DefaultPasswordHasher;
 
 class UsersController extends AppController
@@ -11,29 +10,48 @@ class UsersController extends AppController
     {
         if ($this->request->is('post')) {
             $username = $this->request->getData('username');
-            $hashPswdObj = new DefaultPasswordHasher;
+            $hashPswdObj = new DefaultPasswordHasher();
             $password = $hashPswdObj->hash($this->request->getData('password'));
 
-            // Use the new method for getting the table
-            $usersTable = $this->getTableLocator()->get('users');
+            $usersTable = $this->getTableLocator()->get('Users');
             $user = $usersTable->newEntity($this->request->getData());
             $user->username = $username;
             $user->password = $password;
             
-            $this->set('user', $user);
-            
             if ($usersTable->save($user)) {
-                echo "User is added.";
+                $this->Flash->success(__('User has been added successfully.'));
+                return $this->redirect(['action' => 'index']);
             } else {
-                echo "Failed to add user.";
+                $this->Flash->error(__('Failed to add the user.'));
             }
         }
     }
-    public function index(){
-        $users = TableRegistry::get('users');
-        $query = $users->find();
-        $this->set('results',$query);
-     }
+
+    public function index()
+    {
+        $usersTable = $this->getTableLocator()->get('Users');
+        $query = $usersTable->find();
+        $this->set('results', $query);
+    }
+
+    public function edit($id)
+    {
+        $usersTable = $this->getTableLocator()->get('Users');
+        
+        $user = $usersTable->get($id);
+        if ($this->request->is(['post', 'put'])) {
+            $user = $usersTable->patchEntity($user, $this->request->getData());
+            if ($usersTable->save($user)) {
+                $this->Flash->success(__('User has been updated successfully.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('Failed to update the user.'));
+            }
+        }
+
+        // Pre-fill the form with the existing user data
+        $this->set('user', $user);
+    }
 }
 
 ?>
