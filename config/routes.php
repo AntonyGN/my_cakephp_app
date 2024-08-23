@@ -17,6 +17,8 @@ $routes->scope('/', function (RouteBuilder $builder) {
     
     // Connect other routes
     $builder->connect('/users/add', ['controller' => 'Users', 'action' => 'add']);
+
+    $builder->connect('/users', ['controller' => 'Users', 'action' => 'index']);
     
     // Fallback routes
     $builder->fallbacks();

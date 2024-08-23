@@ -29,6 +29,11 @@ class UsersController extends AppController
             }
         }
     }
+    public function index(){
+        $users = TableRegistry::get('users');
+        $query = $users->find();
+        $this->set('results',$query);
+     }
 }
 
 ?>
