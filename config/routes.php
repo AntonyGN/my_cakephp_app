@@ -16,9 +16,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('/exception/{arg1}/{arg2}',
-      ['controller'=>'Exps','action'=>'index'],
-      ['pass' => ['arg1', 'arg2']]);
+    $builder->connect('logex',['controller'=>'Logexs','action'=>'index']);
     
     // Fallback routes
     $builder->fallbacks();
