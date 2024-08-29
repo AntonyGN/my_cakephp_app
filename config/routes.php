@@ -16,13 +16,9 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('/users/add', ['controller' => 'Users', 'action' => 'add']);
-
-    $builder->connect('/users', ['controller' => 'Users', 'action' => 'index']);
-
-    $builder->connect('/users/edit', ['controller' => 'Users', 'action' => 'edit']);
-
-    $builder->connect('/users/delete', ['controller' => 'Users', 'action' => 'delete']);
+    $builder->connect('/auth',['controller'=>'Authexs','action'=>'index']);
+    $builder->connect('/login',['controller'=>'Authexs','action'=>'login']);
+    $builder->connect('/logout',['controller'=>'Authexs','action'=>'logout']);
     
     // Fallback routes
     $builder->fallbacks();
