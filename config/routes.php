@@ -16,12 +16,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('/session-object',['controller'=>'Sessions','action'=>'index']);
-    $builder->connect('/session-read',['controller'=>'Sessions','action'=>'retrieve_session_data']);
-    $builder->connect('/session-write',['controller'=>'Sessions','action'=> 'write_session_data']);
-    $builder->connect('/session-check',['controller'=>'Sessions','action'=>'check_session_data']);
-    $builder->connect('/session-delete',['controller'=>'Sessions','action'=>'delete_session_data']);
-    $builder->connect('/session-destroy',['controller'=>'Sessions','action'=>'destroy_session_data']);
+    $builder->connect('cookie/testcookies',['controller'=>'Cookies','action'=>'testCookies']);
         
     // Fallback routes
     $builder->fallbacks();
