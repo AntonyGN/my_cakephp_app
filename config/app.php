@@ -66,12 +66,13 @@ return [
     ],
 
     'Error' => [
-        'errorLevel' => E_ALL,
-        'skipLog' => [],
-        'log' => true,
-        'trace' => true,
-        'ignoredDeprecationPaths' => [],
+    'errorLevel' => E_ALL & ~E_USER_DEPRECATED,
+    'ignoredDeprecationPaths' => [
+        'vendor/cakephp/cakephp/src/Routing/Route/Route.php',
+        'vendor/composer/ClassLoader.php',
     ],
+],
+
 
     'Debugger' => [
         'editor' => 'phpstorm',
