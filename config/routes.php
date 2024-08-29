@@ -16,8 +16,9 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('logex',['controller'=>'Logexs','action'=>'index']);
-    
+    $builder->connect('locale',
+      ['controller'=>'Localizations','action'=>'index']);
+        
     // Fallback routes
     $builder->fallbacks();
 });
