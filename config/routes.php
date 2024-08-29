@@ -16,7 +16,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('cookie/testcookies',['controller'=>'Cookies','action'=>'testCookies']);
+    $builder->connect('login',['controller'=>'Logins','action'=>'index']);
         
     // Fallback routes
     $builder->fallbacks();
