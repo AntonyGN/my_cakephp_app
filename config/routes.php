@@ -16,9 +16,9 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('/auth',['controller'=>'Authexs','action'=>'index']);
-    $builder->connect('/login',['controller'=>'Authexs','action'=>'login']);
-    $builder->connect('/logout',['controller'=>'Authexs','action'=>'logout']);
+    $builder->connect('/exception/{arg1}/{arg2}',
+      ['controller'=>'Exps','action'=>'index'],
+      ['pass' => ['arg1', 'arg2']]);
     
     // Fallback routes
     $builder->fallbacks();
