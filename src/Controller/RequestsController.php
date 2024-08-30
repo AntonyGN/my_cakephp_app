@@ -5,9 +5,10 @@
    class RequestsController extends AppController{
       public function index(){
          $http = new Client();
-         $response = $http->get('https://jsonplaceholder.typicode.com/users');
-         $stream = $response->getJson();
-         $this->set('response',$stream);
+         $response = $http->post('https://postman-echo.com/post', [
+            'name'=> 'ABC',
+            'email' => 'xyz@gmail.com'
+         ]);
       }
    }
 ?>
