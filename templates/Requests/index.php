@@ -1,1 +1,1 @@
-<h3>Testing Post Method</h3>
+<h3>Testing Put Method</h3>
