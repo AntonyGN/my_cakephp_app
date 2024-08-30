@@ -5,10 +5,10 @@
    class RequestsController extends AppController{
       public function index(){
          $http = new Client();
-         $response = $http->post('https://postman-echo.com/post', [
-            'name'=> 'ABC',
-            'email' => 'xyz@gmail.com'
-         ]);
+         $response = $http->put('https://postman-echo.com/post', [
+         'name'=> 'ABC',
+         'email' => 'xyz@gmail.com'
+        ]);
       }
    }
 ?>
