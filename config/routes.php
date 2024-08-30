@@ -16,7 +16,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     // Connect other routes
-    $builder->connect('putData',['controller'=>'Requests','action'=>'index']);
+    $builder->connect('posts',['controller'=>'Posts','action'=>'index']);
         
     // Fallback routes
     $builder->fallbacks();
